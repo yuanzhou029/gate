@@ -37,7 +37,7 @@ jobs:
           CHECK_WORKER: ${{ secrets.DOMAIN }}
           CHECK_CONCURRENCY: "32"
           CHECK_TIMEOUT: "90"
-       #   EDGE_HOSTS_URL: ${{ secrets.EDGE_HOSTS_URL }}
+          EDGE_HOSTS_URL: ${{ secrets.EDGE_HOSTS_URL }}
           
       - name: Ensure GitHub Pages is enabled (one-time auto setup)
         run: |
