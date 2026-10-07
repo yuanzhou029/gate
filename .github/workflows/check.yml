@@ -87,11 +87,11 @@ jobs:
           GH_TOKEN: ${{ secrets.GT_TOKEN }}
         run: |
           echo "Fetching completed workflow runs..."
-          RUN_IDS=$(curl -s -H "Authorization: token $GT_TOKEN" \
+          RUN_IDS=$(curl -s -H "Authorization: token $GH_TOKEN" \
             "https://api.github.com/repos/${{ github.repository }}/actions/runs?per_page=100" \
             | jq '.workflow_runs[] | select(.status == "completed") | .id')
           for run_id in $RUN_IDS; do
             echo "Deleting run ID: $run_id"
-            curl -s -X DELETE -H "Authorization: token $GT_TOKEN" \
+            curl -s -X DELETE -H "Authorization: token $GH_TOKEN" \
               "https://api.github.com/repos/${{ github.repository }}/actions/runs/$run_id"
           done
