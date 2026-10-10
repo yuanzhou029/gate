@@ -35,7 +35,7 @@ jobs:
         env:
           # 已部署的检测 Worker (不要改动: 检测统一走这里)
           CHECK_WORKER: ${{ secrets.DOMAIN }}
-          CHECK_CONCURRENCY: "32"
+          CHECK_CONCURRENCY: "16"
           CHECK_TIMEOUT: "90"
           EDGE_HOSTS_URL: ${{ secrets.EDGE_HOSTS_URL }}
           
